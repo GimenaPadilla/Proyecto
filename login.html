@@ -9,24 +9,44 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="img/login.png">
+  
   <style>
     body {
       background-color: rgb(248, 249, 250);
     }
   </style>
+
+  <style> 
+  .error {
+    border-color:red;
+  }
+    </style>
+
 </head>
 
 <body>
+  
+  <center><img src="img/login.png" width="25%"></center>
+ 
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="container">
+      <div>
+        <center>
+          <h2> <b>Inicio de sesión</b></h2><br>
+        <!-- <div><label for = "username">Usuario<input placeholder="Usuario" type = "text" id= "usuario" class="form-control" title="Usuario"></label></div><br> -->
+        <div><label for = "username">Email<input placeholder="Email" type = "text" id= "email" class="form-control" size="50pt"></label></div><br>
+        <div><label for ="username"> Clave<input placeholder="Clave" type="password" id="clave" nave="clave" class="form-control" size="50pt"></label></div><br><br>
+
+        <button class="btn btn-primary" id="inicio" onclick="location.href='index.html'">Ingresar</button>
+      </center>
+
       </div>
     </div>
   </main>
   <footer class="text-muted">
     <div class="container">
-      <p class="float-end">
+     <p class="float-end"
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
@@ -34,7 +54,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 
 </html>

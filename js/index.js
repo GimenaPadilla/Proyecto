@@ -12,3 +12,20 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    let usuario = localStorage.getItem("user");
+
+    if (usuario == null) {
+        alert ("No hay nadie loggeado");
+        location.href = "login.html";
+        } else {
+            document.getElementById("usuario").innerHTML=usuario;
+        }
+
+    document.getElementById("cierro").addEventListener("click", () => {
+        alert ("cierró sesión");
+        localStorage.removeItem('user');
+        location.href="login.html";
+    });
+});
