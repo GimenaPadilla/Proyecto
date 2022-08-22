@@ -10,16 +10,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="img/login.png">
-  <link rel="stylesheet" href="css/login.css">
-    
- <!--
-  <style> 
-  .error {
-    border-color:red
-  }
-    </style>
-
--->
+  <link href="css/login-este.css" rel="stylesheet">
+  <script src="/js/login.js"></script>
 </head>
 
 <body>
@@ -27,75 +19,37 @@
   <nav>
     <center><img class=img src="img/login.png"></center>
   </nav>
- 
+
   <main class="mt-5">
-     <!-- <div class="container">
+    <center>
+
       <div>
-        <center>
-          <h2> <b>Inicio de sesión</b></h2><br>
-           <div><label for = "username">Usuario<input placeholder="Usuario" type = "text" id= "usuario" class="form-control" title="Usuario"></label></div><br> 
-        <div><label for = "username">Email<input placeholder="Email" type = "text" id= "email" class="form-control" size="50pt"><br><p style="color: red" >Ingresa tu e-mail</p></label></div><br>
-        <div><label for ="username"> Clave<input placeholder="Clave" type="password" id="clave" nave="clave" class="form-control" size="50pt"><br><p style="color: red" >Ingresa tu e-mail</p></label></div><br><br>
-
-        <button class="btn btn-primary" id="inicio" onclick="validar()" type="button">Ingresar</button>
-        
-      </center>
-
-      </div>
-    </div> -->
-
-     <!-- Título -->  
-     <center>
-      
-    <div>
         <h2 class="titulo" id="titulo">Inicio de sesión</h2>
     </div>
 
-    <form id="formulario" class="formulario" action="">
-      
-
-      <!-- Grupo Nombre -->
-
-        <div class="formulario__grupo" id="grupo__nombre">
-          <label for="nombre" class="formulario__label">Nombre</label>
-          <div class="formulario__grupo-input">
-            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombre">
-            <i class="formulario__validacion-estado fa-solid fa-circle-exclamation"></i>            
-          </div>
-          <p class="formulario__input-error">Debe ingresar su Nombre</p>
-        </div>  
-
+    <div>
       <!-- Grupo Email -->
 
-      <div class="formulario__grupo" id="grupo__email">
-        <label for="email" class="formulario__label">Email</label>
-        <div class="formulario__grupo-input">
-          <input type="text" class="formulario__input" name="email" id="email" placeholder="Email">
-          <i class="formulario__validacion-estado fa-solid fa-circle-exclamation"></i>
-        </div>
-        <p class="formulario__input-error">Debe ingresar su e-mail</p>
-      </div> 
-      
+      <label for="username">Email <input type="text" id="username" class="form-control" placeholder="Email" ></label><br>
+      <div class="oculto">
+        <i id="iuno" class="icono fa-solid fa-circle-exclamation" style="color: red"></i>
+        <p id="email" class="mensaje-error" style="color: red">Ingresa tu e-mail</p><br>
+      </div><br>
+
+
       <!-- Grupo Contraseña -->
 
-      <div class="formulario__grupo" id="grupo__password">
-        <label for="password" class="formulario__label">Contraseña</label>
-        <div class="formulario__grupo-input">
-          <input type="password" class="formulario__input" name="password" id="password" placeholder="Contraseña">
-          <i class="formulario__validacion-estado fa-solid fa-circle-exclamation"></i>          
-        </div>
-        <p class="formulario__input-error">Debe ingresar su Contraseña</p>
-      </div> 
+      <label for="username">Contraseña <input type="text" id="clave" class="form-control" placeholder="Contraseña"></label><br>
+      <div  class="oculto">
+        <i id="idos" class="icono fa-solid fa-circle-exclamation" style="color: red"></i>
+        <p id="contraseña" class="mensaje-error" style="color: red">Ingresa tu contraseña</p><br>
+      </div><br>
 
       <!-- Grupo Botón -->
 
-      <div class="formulario__grupo formulario__grupo-btn-enviar">
-        <button type="submit" class="btn btn-primary formulario__btn" id="inicio">Ingresar</button>
-        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">A ingresado con éxito</p>
-      </div>
-
-    </form>
-  </center>
+      <button class="btn btn-primary" id="inicio">Inicio</button>
+    </div>
+    </center>
 
   </main>
 
@@ -110,7 +64,7 @@
     </div>
   </footer>
 
-  <script src="js/login.js"></script>
+  
   <script src="https://kit.fontawesome.com/3dc8336666.js" crossorigin="anonymous"></script>
   
   

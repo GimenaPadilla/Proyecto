@@ -13,19 +13,21 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+/* Entrega 1 parte 3 */
+
 document.addEventListener("DOMContentLoaded", ()=> {
     let usuario = localStorage.getItem("user");
 
     if (usuario == null) {
         alert ("No hay nadie loggeado");
         location.href = "login.html";
-        } else {
-            document.getElementById("usuario").innerHTML=usuario;
-        }
-
-    document.getElementById("cierro").addEventListener("click", () => {
-        alert ("cierró sesión");
-        localStorage.removeItem('user');
-        location.href="login.html";
-    });
+    } else {
+        document.getElementById("usuario").innerHTML=usuario;
+        
+        document.getElementById("cierro").addEventListener("click", () => {
+            alert ("cierró sesión");
+            localStorage.removeItem('user');
+            location.href="login.html"; 
+        });
+    };
 });

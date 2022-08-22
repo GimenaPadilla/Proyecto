@@ -1,0 +1,25 @@
+.titulo {
+    font-weight: 50%;
+    margin: 0 0 40px 0;
+    
+}
+
+.error {border-color:red};
+
+/*.mensaje-error {color: red; border: red};*/
+
+.body {
+    background-color: lightgray;
+  }
+
+.img {
+    width: 20%;
+}
+
+.oculto {
+   display: none;
+}
+
+.show {
+    display: block;
+ }
