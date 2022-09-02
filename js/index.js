@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         alert ("No hay nadie loggeado");
         location.href = "login.html";
     } else {
-        document.getElementById("usuario").innerHTML=usuario;
+        document.getElementById("usuario").innerHTML=usuario; /* Entrega 2 parte 1*/
         
         document.getElementById("cierro").addEventListener("click", () => {
             alert ("cierró sesión");
