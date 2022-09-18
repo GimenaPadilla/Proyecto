@@ -16,7 +16,7 @@ function login () {
       //document.getElementsByClassName('show').classList.add('oculto');
       document.getElementById('username').classList.remove('error');
       document.getElementById('clave').classList.remove('error');
-      document.getElementById('nombre').classList.remove('error')
+      document.getElementById('nombre').classList.remove('error');
       localStorage.setItem('user', nombre);
       location.href='index.html';
   }

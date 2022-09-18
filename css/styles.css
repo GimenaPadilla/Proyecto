@@ -188,3 +188,24 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.contenido{
+  display: inline-block;
+  padding: 10px;
+  width: 320px;
+}
+
+.oculto {
+  display: none;
+}
+
+textarea.espacio {
+  width: 500px;
+  height: 150px;
+}
+
+select.espacio {
+  width: 85px;
+  height: 40px;
+  text-align: center
+}

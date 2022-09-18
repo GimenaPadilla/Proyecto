@@ -1,3 +1,11 @@
+/*Entrega 3 parte 1*/
+
+function setProductID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"};
+
+/**/    
+
 let elementosArray = [];
 
 function showElementosList(array){
@@ -6,7 +14,7 @@ function showElementosList(array){
     for(let i = 0; i < array.length; i++){ 
         let products = array[i];
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setProductID(${products.id})" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + products.image + `" alt="product image" class="img-thumbnail">
@@ -40,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+
+
 /* Entrega 2 parte 3 */
 
 function filtrar(){
@@ -64,8 +74,13 @@ function filtrar(){
   });
 
 function ordenDescendente(){
-        elementosArray.sort((ant,sig)=>ant.cost-sig.cost)
-        showElementosList(elementosArray);
+        if (listaFiltrada != undefined){
+            listaFiltrada.sort((ant,sig)=>ant.cost-sig.cost)
+            showElementosList(listaFiltrada);
+        } else{
+            elementosArray.sort((ant,sig)=>ant.cost-sig.cost)
+            showElementosList(elementosArray);
+        };
 };
 
 function ordenAscendente(){
@@ -90,3 +105,5 @@ function ordenRelevancia(){
     document.getElementById('sortByCount').addEventListener('click',()=>{
         ordenRelevancia();
     });
+
+    

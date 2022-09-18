@@ -37,11 +37,43 @@
     </div>
   </nav>
   <main>
-    <div class="container">
+    <!--<div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
+    </div>-->
+  <div class="container">
+  <div id="description"></div>
+  <div id="items"></div>
+  <br>
+  <h5>Comentarios</h5>
+  <div id="comentario"></div>
+  <div>
+    <div id="contenedor">
     </div>
+  </div>
+  <div>
+    <br>
+    <h5>Comentar:</h5>
+    <br>
+        <p>Tu opinión nos importa:</p>
+        <form>
+        <p><textarea name="comentarionuevo" id="comentarionuevo" class="form-control espacio" ></textarea></p>
+        <p>Puntúanos: <span id="calif"></span> </p>
+        <form>
+          <select class="form-control espacio" id="puntaje">
+              <option value=5>5</option>  
+              <option value=4>4</option>
+              <option value=3>3</option>
+              <option value=2>2</option>  
+              <option value=1>1</option>  
+          </select>
+        </form>
+        <br>
+        <input class="btn btn-primary" type="button" value="Enviar" id="enviar">
+        </form>
+  </div>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">
