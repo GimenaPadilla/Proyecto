@@ -1,9 +1,12 @@
 let itemProductos = [];
 let comentarios = [];
 let comentario = [];
+let pRelacionados = [];
 let prodID = PRODUCT_INFO_URL +localStorage.getItem("prodID")+ EXT_TYPE;
 let commentID = PRODUCT_INFO_COMMENTS_URL +localStorage.getItem("prodID")+ EXT_TYPE;
+let relID = PRODUCT_INFO_URL +localStorage.getItem("relID")+ EXT_TYPE;
 let usuario = localStorage.getItem("user");
+let elementosArray = []; /* Entrega 4 parte 1 */
 
 
 /* Entrega 3 Parte 2 */
@@ -15,7 +18,9 @@ function showDescription(array){
     <br>
     <h3>${array.name}</h3>
     <br>
-    
+
+    <hr/>
+
     <b>Precio</b>
     <p>${array.currency} ${array.cost}</p>
     <br>
@@ -181,16 +186,48 @@ document.addEventListener("DOMContentLoaded", function(e){ // Parte 2
          showImages (itemProductos);
             showDescription(itemProductos);
         }
-    })
+    });
     getJSONData(commentID).then(function(resultObj){ // Parte 3
         if (resultObj.status === "ok")
         {
             comentarios = resultObj.data;
             showCommentsList(comentarios);
         }
-    })
-
-    ;
+    });
+    getJSONData(prodID).then(function(resultObj){ // Parte 4  
+        if (resultObj.status === "ok")
+        {
+            pRelacionados = resultObj.data;
+            showRelatedElements(pRelacionados);
+        }
+    });
 });
 
 /* */
+
+/* Entrega 4 Parte 1 */
+
+function showRelatedElements(array){
+    let productosRelacionados = "";
+
+    for(let i = 0; i < array.relatedProducts.length; i++){ 
+        let pReleacionado = array.relatedProducts[i];
+        
+        productosRelacionados += `
+        <div class="contenido col-2 contenido list-group-item-action thumbnail" onclick="setProdID(${pReleacionado.id})">
+            <img src="${pReleacionado.image}" alt="product image" class="images"></img>
+            <p>${pReleacionado.name}</p>
+        </div> 
+        `
+        document.getElementById("productosrelacionados").innerHTML = productosRelacionados;
+    }};
+
+/* */
+
+/*Entrega 4 parte 1.2*/
+
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"};
+
+/**/ 
