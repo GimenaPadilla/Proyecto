@@ -1,12 +1,12 @@
 let itemProductos = [];
 let comentarios = [];
 let comentario = [];
-let pRelacionados = [];
+let pRelacionados = []; /* Entrega 4 parte 1 */
 let prodID = PRODUCT_INFO_URL +localStorage.getItem("prodID")+ EXT_TYPE;
 let commentID = PRODUCT_INFO_COMMENTS_URL +localStorage.getItem("prodID")+ EXT_TYPE;
-let relID = PRODUCT_INFO_URL +localStorage.getItem("relID")+ EXT_TYPE;
+let relID = PRODUCT_INFO_URL +localStorage.getItem("relID")+ EXT_TYPE; /* Entrega 4 parte 1 */
 let usuario = localStorage.getItem("user");
-let elementosArray = []; /* Entrega 4 parte 1 */
+let elementosArray = []; 
 
 
 /* Entrega 3 Parte 2 */
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function(e){ // Parte 2
             showCommentsList(comentarios);
         }
     });
-    getJSONData(prodID).then(function(resultObj){ // Parte 4  
+    getJSONData(prodID).then(function(resultObj){ // Entrega 4 parte 1  
         if (resultObj.status === "ok")
         {
             pRelacionados = resultObj.data;
@@ -224,7 +224,7 @@ function showRelatedElements(array){
 
 /* */
 
-/*Entrega 4 parte 1.2*/
+/*Entrega 4 parte 1*/
 
 function setProdID(id) {
     localStorage.setItem("prodID", id);
