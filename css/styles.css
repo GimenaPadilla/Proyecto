@@ -199,6 +199,10 @@ a.custom-card:hover {
   display: none;
 }
 
+.mostrar {
+  display: block;
+}
+
 textarea.espacio {
   width: 500px;
   height: 150px;
