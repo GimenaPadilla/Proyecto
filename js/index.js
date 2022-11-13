@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.addEventListener("DOMContentLoaded", ()=> {
     let usuario = localStorage.getItem("user");
+    let carrito = document.getElementById("carrito");
+    let perfil = document.getElementById("perfil");
 
     if (usuario == null) {
         alert ("No hay nadie loggeado");
@@ -27,7 +29,20 @@ document.addEventListener("DOMContentLoaded", ()=> {
         document.getElementById("cierro").addEventListener("click", () => {
             alert ("cierró sesión");
             localStorage.removeItem('user');
+            localStorage.removeItem('email');
+            localStorage.removeItem('segn');
+            localStorage.removeItem('ape');
+            localStorage.removeItem('ape2');
+            localStorage.removeItem('tel');
             location.href="login.html"; 
         });
     };
+
+    carrito.addEventListener("click", () => {
+        location.href="cart.html";
+    });
+
+    perfil.addEventListener("click", () => {
+        location.href="my-profile.html";
+    });
 });

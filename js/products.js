@@ -2,16 +2,17 @@
 
 function setProductID(id) {
     localStorage.setItem("prodID", id);
-    window.location = "product-info.html"};
+    window.location = "product-info.html"
+};
 
-/**/    
+/**/
 
 let elementosArray = [];
 
-function showElementosList(array){
+function showElementosList(array) {
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){ 
+    for (let i = 0; i < array.length; i++) {
         let products = array[i];
         htmlContentToAppend += `
         <div onclick="setProductID(${products.id})" class="list-group-item list-group-item-action">
@@ -22,8 +23,8 @@ function showElementosList(array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        <h4>`+ products.name + " " +"-" + " " + products.currency + " " + products.cost +`</h4> 
-                        <p> `+ products.description +`</p> 
+                        <h4>`+ products.name + " " + "-" + " " + products.currency + " " + products.cost + `</h4> 
+                        <p> `+ products.description + `</p> 
                         </div>
                         <small class="text-muted">` + products.soldCount + ` vendidos</small> 
                     </div>
@@ -36,12 +37,11 @@ function showElementosList(array){
     }
 }
 
-let catID = PRODUCTS_URL +localStorage.getItem("catID")+ EXT_TYPE; /* Entrega 2 parte 2 */
+let catID = PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE; /* Entrega 2 parte 2 */
 
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(catID).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(catID).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             elementosArray = resultObj.data.products;
             showElementosList(elementosArray);
         }
@@ -52,58 +52,88 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 /* Entrega 2 parte 3 */
 
-function filtrar(){
+function filtrar() {
     //parseInt porque es un string, y necesito un integer
     let inicial = parseInt(document.getElementById('rangeFilterCountMin').value);//tomo el valor mínimo
     let final = parseInt(document.getElementById('rangeFilterCountMax').value);//tomo el valor máximo
-    let listaFiltrada = elementosArray.filter(precio => precio.cost >= inicial && precio.cost <= final );  
+    let listaFiltrada = elementosArray.filter(precio => precio.cost >= inicial && precio.cost <= final);
     showElementosList(listaFiltrada);
 
-}  
+}
 
-  document.addEventListener('DOMContentLoaded',()=>{
-    document.getElementById('rangeFilterCount').addEventListener('click',()=>{
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('rangeFilterCount').addEventListener('click', () => {
         filtrar();
     });
-  });
+});
 
-  document.addEventListener('DOMContentLoaded',()=>{
-    document.getElementById('clearRangeFilter').addEventListener('click',()=>{
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('clearRangeFilter').addEventListener('click', () => {
         showElementosList(elementosArray);
     });
-  });
+});
 
-function ordenDescendente(){
-        if (listaFiltrada != undefined){
-            listaFiltrada.sort((ant,sig)=>ant.cost-sig.cost)
-            showElementosList(listaFiltrada);
-        } else{
-            elementosArray.sort((ant,sig)=>ant.cost-sig.cost)
-            showElementosList(elementosArray);
-        };
+function ordenDescendente() {
+    if (listaFiltrada != undefined) {
+        listaFiltrada.sort((ant, sig) => ant.cost - sig.cost)
+        showElementosList(listaFiltrada);
+    } else {
+        elementosArray.sort((ant, sig) => ant.cost - sig.cost)
+        showElementosList(elementosArray);
+    };
 };
 
-function ordenAscendente(){
-    elementosArray.sort((ant,sig)=>sig.cost-ant.cost);
+function ordenAscendente() {
+    elementosArray.sort((ant, sig) => sig.cost - ant.cost);
     showElementosList(elementosArray);
 };
 
-function ordenRelevancia(){
-    elementosArray.sort((ant,sig)=>sig.soldCount-ant.soldCount);
+function ordenRelevancia() {
+    elementosArray.sort((ant, sig) => sig.soldCount - ant.soldCount);
     showElementosList(elementosArray);
 };
-  
-    document.getElementById('sortAsc').addEventListener('click',()=>{
-        ordenAscendente();
-    });
- 
 
-    document.getElementById('sortDesc').addEventListener('click',()=>{
-        ordenDescendente();
+document.getElementById('sortAsc').addEventListener('click', () => {
+    ordenAscendente();
+});
+
+
+document.getElementById('sortDesc').addEventListener('click', () => {
+    ordenDescendente();
+});
+
+document.getElementById('sortByCount').addEventListener('click', () => {
+    ordenRelevancia();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    let usuario = localStorage.getItem("user");
+    let carrito = document.getElementById("carrito");
+    let perfil = document.getElementById("perfil");
+
+    if (usuario == null) {
+        alert("No hay nadie loggeado");
+        location.href = "login.html";
+    } else {
+        document.getElementById("usuario").innerHTML = usuario; /* Entrega 2 parte 1*/
+
+        document.getElementById("cierro").addEventListener("click", () => {
+            alert("cierró sesión");
+            localStorage.removeItem('user');
+            localStorage.removeItem('email');
+            localStorage.removeItem('segn');
+            localStorage.removeItem('ape');
+            localStorage.removeItem('ape2');
+            localStorage.removeItem('tel');
+            location.href = "login.html";
+        });
+    };
+
+    carrito.addEventListener("click", () => {
+        location.href = "cart.html";
     });
 
-    document.getElementById('sortByCount').addEventListener('click',()=>{
-        ordenRelevancia();
+    perfil.addEventListener("click", () => {
+        location.href = "my-profile.html";
     });
-
-    
+});

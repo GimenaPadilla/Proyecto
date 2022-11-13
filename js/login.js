@@ -18,6 +18,7 @@ function login () {
       document.getElementById('clave').classList.remove('error');
       document.getElementById('nombre').classList.remove('error');
       localStorage.setItem('user', nombre);
+      localStorage.setItem('email', usuario);
       location.href='index.html';
   }
 }

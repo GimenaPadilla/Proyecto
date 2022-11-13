@@ -45,17 +45,93 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Usuario actual: <span id="usuario"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#" id="carrito">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="#" id="perfil">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="#" id="cierro">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    
+    <!--  Entrega 7 parte 1 -->
+    <div class="container col-6">
+    <br>
+    <h3>Perfil</h3>
+    <br>
+    <hr>
+
+    <form class="row g-3 needs-validation" novalidate>
+
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label" >Primer nombre*</label>
+        <input type="text" class="form-control" id="nombre" required>
+        <div class="valid-feedback">
+          Se ve bien!
+        </div>
+        <div class="invalid-feedback">
+          Por favor ingrese un nombre.
+        </div>
       </div>
-    </div>
+
+      <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Segundo nombre</label>
+        <input type="text" class="form-control" id="segn">
+      </div>
+
+
+      <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Apellido*</label>
+        <input type="text" class="form-control" id="ape" required>
+        <div class="valid-feedback">
+          Se ve bien!
+        </div>
+        <div class="invalid-feedback">
+          Por favor ingrese un apellido.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Segundo apellido</label>
+        <input type="text" class="form-control" id="ape2">
+      </div>
+
+      <div class="col-md-6">
+        <label for="validationCustomUsername" class="form-label" >E-mail*</label>
+        <input type="text" class="form-control" id="correo" aria-describedby="inputGroupPrepend"
+          required>
+          <div class="valid-feedback">
+            Se ve bien!
+          </div>
+          <div class="invalid-feedback">
+            Por favor ingrese un telefono.
+          </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Teléfono de contacto</label>
+        <input type="number" class="form-control" id="tel">
+        <br>
+        <br>
+      </div>
+
+      <hr>
+
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit" id="btnGuardar" >Guardar cambios</button>
+      </div>
+
+    </form>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">
